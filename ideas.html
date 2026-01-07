@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Your Ideas - Premium Golf Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>⛳ Premium Golf Simulator</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="play.html">Play</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="ideas.html" class="active">Ideas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Share Your Ideas</h1>
+                <p>Your feedback helps us improve and grow</p>
+            </div>
+        </section>
+
+        <section class="ideas-section">
+            <div class="container">
+                <div class="ideas-intro">
+                    <p>We value your input! Share your ideas for new golf attractions, improvements to our website or facility, or answer our questionnaire about potential new services. Your feedback directly shapes the future of Premium Golf Simulator.</p>
+                </div>
+
+                <div class="ideas-forms">
+                    <!-- Golf Attraction Suggestion Form -->
+                    <div class="idea-form-card">
+                        <h2>💡 Suggest a Golf Attraction</h2>
+                        <p>Have an idea for a new golf attraction or feature we could add? We'd love to hear it!</p>
+                        <form id="attractionForm" onsubmit="handleAttractionSuggestion(event)">
+                            <div class="form-group">
+                                <label for="attractionName">Your Name</label>
+                                <input type="text" id="attractionName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="attractionEmail">Email</label>
+                                <input type="email" id="attractionEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="attractionIdea">Your Golf Attraction Idea</label>
+                                <textarea id="attractionIdea" rows="5" required placeholder="Describe your idea for a new golf attraction or feature..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Idea</button>
+                        </form>
+                    </div>
+
+                    <!-- Improvement Suggestion Form -->
+                    <div class="idea-form-card">
+                        <h2>🔧 Website or Space Improvement</h2>
+                        <p>Have suggestions for improving our website or physical space? Let us know!</p>
+                        <form id="improvementForm" onsubmit="handleImprovementSuggestion(event)">
+                            <div class="form-group">
+                                <label for="improvementName">Your Name</label>
+                                <input type="text" id="improvementName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="improvementEmail">Email</label>
+                                <input type="email" id="improvementEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="improvementType">Type of Improvement</label>
+                                <select id="improvementType" required>
+                                    <option value="">Select type...</option>
+                                    <option value="website">Website</option>
+                                    <option value="facility">Facility/Space</option>
+                                    <option value="service">Service</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="improvementIdea">Your Suggestion</label>
+                                <textarea id="improvementIdea" rows="5" required placeholder="Describe your improvement suggestion..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Suggestion</button>
+                        </form>
+                    </div>
+
+                    <!-- Pricing Questionnaire -->
+                    <div class="idea-form-card questionnaire">
+                        <h2>📊 Indoor Putting/Clipping Green Questionnaire</h2>
+                        <p>We're considering adding an indoor putting/chipping green with hourly rates. Your input will help us determine pricing!</p>
+                        <form id="questionnaireForm" onsubmit="handleQuestionnaire(event)">
+                            <div class="form-group">
+                                <label for="questionnaireName">Your Name</label>
+                                <input type="text" id="questionnaireName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="questionnaireEmail">Email</label>
+                                <input type="email" id="questionnaireEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Would you pay an hourly rate for an indoor putting/chipping green?</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="wouldPay" value="yes" required>
+                                        <span>Yes</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="wouldPay" value="no" required>
+                                        <span>No</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group" id="pricingGroup" style="display: none;">
+                                <label>If yes, what would be a good price per half hour?</label>
+                                <div class="radio-group pricing-options">
+                                    <label class="radio-label">
+                                        <input type="radio" name="pricing" value="5">
+                                        <span>$5</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="pricing" value="10">
+                                        <span>$10</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="pricing" value="15">
+                                        <span>$15</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="pricing" value="20">
+                                        <span>$20</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="pricing" value="25">
+                                        <span>$25</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="additionalComments">Additional Comments (Optional)</label>
+                                <textarea id="additionalComments" rows="3" placeholder="Any additional thoughts or suggestions..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Response</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Premium Golf Simulator</h3>
+                    <p>Your destination for premium indoor golf experiences</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="play.html">Book a Session</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="ideas.html">Share Ideas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@premiumgolfsim.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Premium Golf Simulator. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

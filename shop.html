@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Premium Golf Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>⛳ Premium Golf Simulator</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="play.html">Play</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="ideas.html">Ideas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Golf Shop</h1>
+                <p>Premium golf equipment and accessories</p>
+            </div>
+        </section>
+
+        <section class="shop-section">
+            <div class="container">
+                <div class="shop-filters">
+                    <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+                    <button class="filter-btn" onclick="filterProducts('clubs')">Clubs</button>
+                    <button class="filter-btn" onclick="filterProducts('accessories')">Accessories</button>
+                    <button class="filter-btn" onclick="filterProducts('apparel')">Apparel</button>
+                </div>
+
+                <div class="products-grid">
+                    <div class="product-card" data-category="clubs">
+                        <div class="product-image">🏌️</div>
+                        <h3>Premium Driver</h3>
+                        <p class="product-description">Professional-grade driver for maximum distance and accuracy</p>
+                        <p class="product-price">$299.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-category="clubs">
+                        <div class="product-image">⛳</div>
+                        <h3>Iron Set (4-PW)</h3>
+                        <p class="product-description">Complete iron set for consistent ball striking</p>
+                        <p class="product-price">$599.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-category="clubs">
+                        <div class="product-image">🏌️</div>
+                        <h3>Putter</h3>
+                        <p class="product-description">Precision milled putter for improved accuracy</p>
+                        <p class="product-price">$149.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-category="accessories">
+                        <div class="product-image">🎒</div>
+                        <h3>Golf Bag</h3>
+                        <p class="product-description">Premium stand bag with multiple pockets</p>
+                        <p class="product-price">$199.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-category="accessories">
+                        <div class="product-image">🧤</div>
+                        <h3>Golf Gloves (Pack of 3)</h3>
+                        <p class="product-description">Premium leather gloves for better grip</p>
+                        <p class="product-price">$39.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-category="accessories">
+                        <div class="product-image">⛳</div>
+                        <h3>Golf Balls (Dozen)</h3>
+                        <p class="product-description">Professional-grade golf balls</p>
+                        <p class="product-price">$24.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-category="accessories">
+                        <div class="product-image">📏</div>
+                        <h3>Range Finder</h3>
+                        <p class="product-description">Laser range finder for accurate distance measurement</p>
+                        <p class="product-price">$179.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-category="apparel">
+                        <div class="product-image">👕</div>
+                        <h3>Golf Polo Shirt</h3>
+                        <p class="product-description">Moisture-wicking performance polo</p>
+                        <p class="product-price">$49.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-category="apparel">
+                        <div class="product-image">👖</div>
+                        <h3>Golf Pants</h3>
+                        <p class="product-description">Comfortable and stylish golf pants</p>
+                        <p class="product-price">$79.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-category="apparel">
+                        <div class="product-image">👟</div>
+                        <h3>Golf Shoes</h3>
+                        <p class="product-description">Waterproof golf shoes with excellent traction</p>
+                        <p class="product-price">$129.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-category="accessories">
+                        <div class="product-image">🧢</div>
+                        <h3>Golf Cap</h3>
+                        <p class="product-description">UV protection cap with adjustable fit</p>
+                        <p class="product-price">$24.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-category="accessories">
+                        <div class="product-image">☂️</div>
+                        <h3>Golf Umbrella</h3>
+                        <p class="product-description">Large wind-resistant golf umbrella</p>
+                        <p class="product-price">$34.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Premium Golf Simulator</h3>
+                    <p>Your destination for premium indoor golf experiences</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="play.html">Book a Session</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="ideas.html">Share Ideas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@premiumgolfsim.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Premium Golf Simulator. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

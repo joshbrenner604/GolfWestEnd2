@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Session - Premium Golf Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>⛳ Premium Golf Simulator</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="play.html" class="active">Play</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="ideas.html">Ideas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Book Your Golf Session</h1>
+                <p>Choose your preferred experience and reserve your time slot</p>
+            </div>
+        </section>
+
+        <section class="booking-section">
+            <div class="container">
+                <div class="booking-options">
+                    <div class="booking-card featured">
+                        <div class="booking-badge">Most Popular</div>
+                        <h2>Full Simulator Experience</h2>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Uneekor</span>
+                            <span class="tech-badge">GSPro</span>
+                        </div>
+                        <p class="booking-description">Complete golf simulation with professional launch monitor technology. Play world-famous courses with accurate ball tracking and club data.</p>
+                        <div class="price-display">
+                            <span class="price-main">$25</span>
+                            <span class="price-unit">/hour</span>
+                            <span class="sale-badge-large">Opening Month Special!</span>
+                        </div>
+                        <button class="btn btn-primary btn-large" onclick="openBookingModal('simulator')">Book Simulator</button>
+                    </div>
+
+                    <div class="booking-card">
+                        <h2>Net & Mat Practice</h2>
+                        <p class="booking-description">Perfect for focused practice sessions. Premium hitting mat and net setup for improving your swing.</p>
+                        <div class="price-display">
+                            <span class="price-main">$10</span>
+                            <span class="price-unit">/hour</span>
+                            <span class="sale-badge-large">Limited Time Offer</span>
+                        </div>
+                        <button class="btn btn-primary btn-large" onclick="openBookingModal('net')">Book Net & Mat</button>
+                    </div>
+
+                    <div class="booking-card free">
+                        <h2>Putting & Chipping</h2>
+                        <p class="booking-description">Practice your short game anytime. Free putting and chipping area available during business hours.</p>
+                        <div class="price-display">
+                            <span class="price-main">FREE</span>
+                        </div>
+                        <p class="availability-note">Available on a first-come, first-served basis</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="schedule-section">
+            <div class="container">
+                <h2 class="section-title">View Schedule & Availability</h2>
+                <div class="schedule-controls">
+                    <div class="schedule-filter">
+                        <label for="scheduleType">View Schedule For:</label>
+                        <select id="scheduleType" onchange="updateSchedule()">
+                            <option value="simulator">Full Simulator</option>
+                            <option value="net">Net & Mat</option>
+                            <option value="all">Both</option>
+                        </select>
+                    </div>
+                    <div class="schedule-date-picker">
+                        <label for="scheduleDate">Select Date:</label>
+                        <input type="date" id="scheduleDate" onchange="updateSchedule()">
+                    </div>
+                </div>
+                <div id="scheduleDisplay" class="schedule-display">
+                    <!-- Schedule will be generated here -->
+                </div>
+                <div class="schedule-legend">
+                    <div class="legend-item">
+                        <span class="legend-box available"></span>
+                        <span>Available</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-box booked"></span>
+                        <span>Booked</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-box past"></span>
+                        <span>Past</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>⏰ Operating Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 10:00 PM</p>
+                        <p>Saturday - Sunday: 8:00 AM - 11:00 PM</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📋 Booking Policy</h3>
+                        <p>Reservations can be made up to 30 days in advance. Cancellations must be made 24 hours prior to your session.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🎁 Special Offers</h3>
+                        <p>Opening month special: Full simulator at $25/hour. Net & Mat special pricing valid for the next two months.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2 id="modalTitle">Book Your Session</h2>
+            <form id="bookingForm" onsubmit="handleBooking(event)">
+                <div class="form-group">
+                    <label for="sessionType">Session Type</label>
+                    <input type="text" id="sessionType" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="bookingDate">Select Date</label>
+                    <input type="date" id="bookingDate" required min="">
+                </div>
+                <div class="form-group">
+                    <label for="bookingTime">Select Time</label>
+                    <select id="bookingTime" required>
+                        <option value="">Choose a time slot</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration (hours)</label>
+                    <select id="duration" required>
+                        <option value="1">1 hour</option>
+                        <option value="2">2 hours</option>
+                        <option value="3">3 hours</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="customerName">Your Name</label>
+                    <input type="text" id="customerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerEmail">Email</label>
+                    <input type="email" id="customerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">Phone</label>
+                    <input type="tel" id="customerPhone" required>
+                </div>
+                <div class="form-group">
+                    <label id="totalPrice">Total: $0</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Premium Golf Simulator</h3>
+                    <p>Your destination for premium indoor golf experiences</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="play.html">Book a Session</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="ideas.html">Share Ideas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@premiumgolfsim.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Premium Golf Simulator. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
